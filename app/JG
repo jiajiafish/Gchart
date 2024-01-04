@@ -1,0 +1,12 @@
+JG.repeat(1, 10, {
+  id: `abc${JG.objectId()}`,
+  user:JG.company(),
+isActive:JG.bool(),
+  apiKey: JG.guid(),
+  worker:`${JG.random('a','b','c','d')}-${JG.random(1,2,3)}`,
+  startTime: JG.date(new Date(2023, 10, 1), new Date(2024, 3, 1)),
+  endTime() {
+    return moment(this.createdAt).add(JG.floating(1, 6, 6), 'days');
+  },
+  
+});
